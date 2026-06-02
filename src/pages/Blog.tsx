@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface BlogPost {
   id: number;
@@ -79,9 +80,9 @@ const Blog: React.FC = () => {
               </div>
 
               <h2 className="text-2xl font-bold tracking-tight text-zinc-900 group-hover:text-indigo-600 transition-colors mb-3">
-                <a href={`/blog/${post.id}`}>
+                <Link to={`/blog/${post.id}`}>
                   {post.title}
-                </a>
+                </Link>
               </h2>
               
               <p className="text-zinc-600 leading-relaxed">
@@ -89,13 +90,13 @@ const Blog: React.FC = () => {
               </p>
               
               <div className="mt-4">
-                <a 
-                  href={`/blog/${post.id}`}
+                <Link 
+                  to={`/blog/${post.id}`}
                   className="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-700 gap-1"
                 >
                   Read More 
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </a>
+                </Link>
               </div>
             </article>
           ))}
