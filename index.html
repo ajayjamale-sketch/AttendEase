@@ -7,49 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="static/css/style.css" />
 </head>
 <body>
-  <nav>
-    <div class="logo">AttendEase</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Pricing</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
-  </nav>
-  <section class="hero">
-    <h1>Welcome to AttendEase</h1>
-    <p>Effortlessly manage attendance, track events, and generate insightful reports—all in one sleek, modern interface.</p>
-    <button class="cta">Get Started</button>
-  </section>
-  <footer class="simple-footer">
-    © 2026 AttendEase. All rights reserved.
-    <nav class="footer-nav">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Contact</a>
-    </nav>
-  </footer>
-  <script>
-    const toggle = document.getElementById('theme-toggle');
-    const root = document.documentElement;
-    const current = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    if (current === 'dark') root.classList.add('dark');
-    toggle.textContent = current === 'dark' ? '☀️' : '🌙';
-    toggle.addEventListener('click', () => {
-      if (root.classList.contains('dark')) {
-        root.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        toggle.textContent = '🌙';
-      } else {
-        root.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        toggle.textContent = '☀️';
-      }
-    });
-  </script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
