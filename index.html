@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AttendEase – Attendance Management</title>
-    <meta name="description" content="AttendEase is a modern attendance management system for employees and students. Track attendance, generate reports, and manage your team efficiently." />
-    <meta name="keywords" content="attendance management, employee tracking, HR software, attendance system, workforce management" />
-    <meta name="author" content="OnSpace" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.onspace.ai" />
-    <meta property="og:title" content="AttendEase – Attendance Management" />
-    <meta property="og:description" content="AttendEase is a modern attendance management system for employees and students." />
-    <meta property="og:image" content="/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="AttendEase" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://www.onspace.ai" />
-    <meta name="twitter:title" content="AttendEase – Attendance Management" />
-    <meta name="twitter:description" content="AttendEase is a modern attendance management system for employees and students." />
-    <meta name="twitter:image" content="/og-image.jpg" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
-
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "AttendEase",
-      "url": "https://www.onspace.ai",
-      "description": "AttendEase is a modern attendance management system for employees and students."
-    }
-    </script>
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AttendEase – Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">AttendEase</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+  </nav>
+  <section class="hero">
+    <h1>Welcome to AttendEase</h1>
+    <p>Effortlessly manage attendance, track events, and generate insightful reports—all in one sleek, modern interface.</p>
+    <button class="cta">Get Started</button>
+  </section>
+  <footer class="simple-footer">
+    © 2026 AttendEase. All rights reserved.
+    <nav class="footer-nav">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </nav>
+  </footer>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const current = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (current === 'dark') root.classList.add('dark');
+    toggle.textContent = current === 'dark' ? '☀️' : '🌙';
+    toggle.addEventListener('click', () => {
+      if (root.classList.contains('dark')) {
+        root.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        toggle.textContent = '🌙';
+      } else {
+        root.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+    });
+  </script>
+</body>
 </html>
