@@ -65,6 +65,7 @@ function AppContent() {
           <Route path="/settings" element={<Navigate to="/login" replace />} />
         </>
       )}
+      
 
       <Route path="*" element={<NotFound />} />
     </Routes>
